@@ -65,6 +65,7 @@ pub async fn check_request_received(browser: Browser, uri: String) {
 
 #[allow(dead_code)]
 pub async fn check_browser(browser: Browser, platform: &str) {
+    println!("//ｎｏｎａｓｃｉｉ");
     check_request_received(browser, format!("/{}", platform)).await;
     check_request_received(browser, format!("/{}/ｎｏｎａｓｃｉｉ", platform)).await;
 }
