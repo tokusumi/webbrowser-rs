@@ -9,6 +9,8 @@ on:
 env:
   CARGO_TERM_COLOR: always
   RUST_BACKTRACE: 1
+  LANG: en_US.UTF-8
+  LC_ALL: en_US.UTF-8
 
 jobs:
   build:
