@@ -46,7 +46,10 @@ pub async fn check_request_received(browser: Browser, uri: String) {
 
     // wait for the url to be hit
     match rx.recv_timeout(std::time::Duration::from_secs(30)) {
-        Ok(msg) => assert_eq!(decode(&msg).unwrap(), uri),
+        Ok(msg) => {
+            println!("got message");
+            assert_eq!(decode(&msg).unwrap(), uri);
+        }       
         Err(_) => panic!("failed to receive uri data"),
     }
 
