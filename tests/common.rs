@@ -43,7 +43,7 @@ where
     let server = http_server.run();
 
     // invoke the op
-    op(&format!("http://{}:{}{}", host, port, &uri));
+    op(&format!("'http://{}:{}{}'", host, port, &uri));
 
     // wait for the url to be hit
     match rx.recv_timeout(std::time::Duration::from_secs(30)) {
@@ -69,6 +69,6 @@ pub async fn check_request_received(browser: Browser, uri: String) {
 #[allow(dead_code)]
 pub async fn check_browser(browser: Browser, platform: &str) {
     println!("//ｎｏｎａｓｃｉｉ");
-    check_request_received(browser, format!("/{}", platform)).await;
+    // check_request_received(browser, format!("/{}", platform)).await;
     check_request_received(browser, format!("/{}/ｎｏｎａｓｃｉｉ", platform)).await;
 }
