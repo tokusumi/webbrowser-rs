@@ -9,7 +9,7 @@ pub fn open_browser_internal(browser: Browser, url: &str) -> Result<ExitStatus> 
     match browser {
         Browser::Default => {
             let st = cmd.arg(url).status();
-            println!({:?}, st);
+            println!("{:?}", st);
             st
         }
         _ => {
