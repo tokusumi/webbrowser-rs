@@ -8,7 +8,9 @@ pub fn open_browser_internal(browser: Browser, url: &str) -> Result<ExitStatus> 
     let mut cmd = Command::new("open");
     match browser {
         Browser::Default => {
-            let st = cmd.arg(url).status();
+            cmd.arg(url);
+            println!("{:?}", cmd);
+            let st = cmd.status();
             println!("{:?}", st);
             st
         }

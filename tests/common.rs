@@ -43,7 +43,7 @@ where
     let server = http_server.run();
 
     // invoke the op
-    op(&format!("'http://{}:{}{}'", host, port, &uri));
+    op(&format!("http://{}:{}{}", host, port, &uri));
 
     // wait for the url to be hit
     match rx.recv_timeout(std::time::Duration::from_secs(30)) {
