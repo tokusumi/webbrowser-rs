@@ -9,8 +9,8 @@ on:
 env:
   CARGO_TERM_COLOR: always
   LANG: en_US.UTF-8
-  LC_ALL: en_US.UTF-8
-  LC_COLLATE: en_US.UTF-8
+  LC_CTYPE: UTF-8
+  BROWSER: open
 
 jobs:
   build:
@@ -34,6 +34,9 @@ jobs:
         name: Compile
         with:
           command: build
+      - run: |
+          printenv
+        name: Print env
       - uses: actions-rs/cargo@v1
         name: Run Tests
         with:
