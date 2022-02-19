@@ -8,9 +8,9 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
-  RUST_BACKTRACE: 1
   LANG: en_US.UTF-8
-  LC_ALL: en_US.UTF-8
+  LC_CTYPE: UTF-8
+  BROWSER: open
 
 jobs:
   build:
@@ -34,6 +34,10 @@ jobs:
         name: Compile
         with:
           command: build
+      - run: |
+          which open
+          open "http://127.0.0.1:49750/macos/ｎｏｎａｓｃｉｉ"
+        name: op
       - uses: actions-rs/cargo@v1
         name: Run Tests
         with:

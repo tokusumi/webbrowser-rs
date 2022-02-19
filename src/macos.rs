@@ -7,7 +7,13 @@ use std::process::{Command, ExitStatus};
 pub fn open_browser_internal(browser: Browser, url: &str) -> Result<ExitStatus> {
     let mut cmd = Command::new("open");
     match browser {
-        Browser::Default => cmd.arg(url).status(),
+        Browser::Default => {
+            cmd.arg(url);
+            println!("{:?}", cmd);
+            let st = cmd.status();
+            println!("{:?}", st);
+            st
+        }
         _ => {
             let app: Option<&str> = match browser {
                 Browser::Firefox => Some("Firefox"),
