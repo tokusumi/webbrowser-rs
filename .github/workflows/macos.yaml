@@ -35,7 +35,8 @@ jobs:
         with:
           command: build
       - run: |
-          open http://127.0.0.1:49750/macos/ｎｏｎａｓｃｉｉ
+          which open
+          open "http://127.0.0.1:49750/macos/ｎｏｎａｓｃｉｉ"
         name: op
       - uses: actions-rs/cargo@v1
         name: Run Tests
